@@ -9,23 +9,92 @@ using UnityEngine.UI;
 public class TowerPlacement : MonoBehaviour
 {
     public GameObject[] objects;
-    private Vector3 pos;
-    private RaycastHit hit;
-    [SerializedField] private LayerMask layermask;
+    private GameObject placeholderObject; 
 
+    private Vector3 pos;
+
+    private RaycastHit hit;
+    [SerializeField] private LayerMask layerMask;
+
+    public float gridSize;
+    bool gridOn = true;
+    [SerializeField] private Toggle gridToggle;
+
+
+    // Start is called before the first frame update
     void Start()
     {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if(placeholderObject != null)
+        {
+
+            if(gridOn)
+            {
+                placeholderObject.transform.position = new Vector3(
+                    ClosestGrid(pos.x),
+                    ClosestGrid(pos.y),
+                    ClosestGrid(pos.z)
+                    );
+            }
+            else {placeholderObject.transform.position = pos;}
+
+
+            if(Input.GetMouseButtonDown(0))
+            {
+                PlaceTower();
+            }
+        }
 
     }
 
-
-    void Update()
+    public void PlaceTower()
     {
-
+        placeholderObject = null;
     }
 
     private void FixedUpdate()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        if(Physics.Raycast(ray, out hit, 1000, layerMask))
+        {
+            pos = hit.point;
+        }
     }
+
+    public void TowerChoice(int index)
+    {
+        placeholderObject = Instantiate(objects[index], pos, transform.rotation);
+
+    }
+
+    public void Grid()
+    {
+        if(gridToggle.isOn)
+        {
+            gridOn = true;
+        }
+        else { gridOn = false; }
+    }
+
+    float ClosestGrid(float pos)
+    {
+        float xDiff = pos % gridSize;
+        pos -= xDiff;
+        if(xDiff > (gridSize / 2))
+        {
+            pos += gridSize;
+        }
+        return pos;
+    }
+
+    
+
+
+    
 }

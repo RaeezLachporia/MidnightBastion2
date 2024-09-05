@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 public class CheckTowerPlacement : MonoBehaviour
 {
     TowerPlacement towerPlacement;
-    
+
     void Start()
     {
         towerPlacement = GameObject.Find("TowerPlacer").GetComponent<TowerPlacement>();
@@ -21,4 +21,5 @@ public class CheckTowerPlacement : MonoBehaviour
     {
 
     }
+
 }
