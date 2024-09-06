@@ -69,8 +69,8 @@ public class TowerPlacement : MonoBehaviour
 
     public void TowerChoice(int index)
     {
-        placeholderObject = Instantiate(objects[index], pos, transform.rotation);
-
+        //placeholderObject = Instantiate(objects[index], pos, transform.rotation); this is the old code that cuased the towers to be placed in the wrong orientation.
+        placeholderObject = Instantiate(objects[index], pos, Quaternion.Euler(-90, 0, 0)); // causes tower when placed to be placed at -90 degrees so it is upright
     }
 
     public void Grid()
