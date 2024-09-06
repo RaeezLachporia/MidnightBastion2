@@ -16,6 +16,8 @@ public class TowerPlacement : MonoBehaviour
     private RaycastHit hit;
     [SerializeField] private LayerMask layerMask;
 
+    //public PlacementZones placementZones;
+
     //public float gridSize;
     //bool gridOn = true;
     //[SerializeField] private Toggle gridToggle;
@@ -24,7 +26,7 @@ public class TowerPlacement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //placementZones = FindObjectOfType<PlacementZones>();
     }
 
     // Update is called once per frame
@@ -32,23 +34,29 @@ public class TowerPlacement : MonoBehaviour
     {
         if(placeholderObject != null)
         {
-
-            /*if(gridOn)
-            {
-                placeholderObject.transform.position = new Vector3(
-                    ClosestGrid(pos.x),
-                    ClosestGrid(pos.y),
-                    ClosestGrid(pos.z)
-                    );
-            }*/
-            //else {placeholderObject.transform.position = pos;}
-
             placeholderObject.transform.position = pos;
+
+
+
             if (Input.GetMouseButtonDown(0))
             {
+
                 PlaceTower();
+                /*if(IsPositionValid(pos))
+                {
+                    PlaceTower();
+                }
+                else
+                {
+                    Debug.Log("Invalid Placement");
+                }*/
             }
+
+
         }
+
+
+        
 
     }
 
@@ -81,6 +89,18 @@ public class TowerPlacement : MonoBehaviour
         
         
     }
+
+    /*private bool IsPositionValid(Vector3 towerPosition)
+    {
+        foreach(Rect zone in placementZones.validTowerZones)
+        {
+            if(zone.Contains(new Vector2(towerPosition.x, towerPosition.z)))
+            {
+                return true;
+            }
+        }
+        return false;
+    }*/
 
     /*public void Grid()
     {

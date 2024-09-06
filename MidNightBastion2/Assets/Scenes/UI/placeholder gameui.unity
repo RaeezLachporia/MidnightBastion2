@@ -321,7 +321,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 734872125}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TowerPlacement, Assembly-CSharp
         m_MethodName: Grid
         m_Mode: 1
@@ -396,7 +396,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 734872122}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad04ba74a6119034d9eae5e89c444447, type: 3}
+  m_Script: {fileID: 11500000, guid: 382155d26c0b2be44a18d745f6aa06b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   objects:
@@ -404,8 +404,6 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 8
-  gridSize: 50
-  gridToggle: {fileID: 683555427}
 --- !u!1 &1248273415
 GameObject:
   m_ObjectHideFlags: 0
