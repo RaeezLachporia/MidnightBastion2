@@ -16,9 +16,9 @@ public class TowerPlacement : MonoBehaviour
     private RaycastHit hit;
     [SerializeField] private LayerMask layerMask;
 
-    public float gridSize;
-    bool gridOn = true;
-    [SerializeField] private Toggle gridToggle;
+    //public float gridSize;
+    //bool gridOn = true;
+    //[SerializeField] private Toggle gridToggle;
 
 
     // Start is called before the first frame update
@@ -33,18 +33,18 @@ public class TowerPlacement : MonoBehaviour
         if(placeholderObject != null)
         {
 
-            if(gridOn)
+            /*if(gridOn)
             {
                 placeholderObject.transform.position = new Vector3(
                     ClosestGrid(pos.x),
                     ClosestGrid(pos.y),
                     ClosestGrid(pos.z)
                     );
-            }
-            else {placeholderObject.transform.position = pos;}
+            }*/
+            //else {placeholderObject.transform.position = pos;}
 
-
-            if(Input.GetMouseButtonDown(0))
+            placeholderObject.transform.position = pos;
+            if (Input.GetMouseButtonDown(0))
             {
                 PlaceTower();
             }
@@ -82,7 +82,7 @@ public class TowerPlacement : MonoBehaviour
         
     }
 
-    public void Grid()
+    /*public void Grid()
     {
         if(gridToggle.isOn)
         {
@@ -100,7 +100,7 @@ public class TowerPlacement : MonoBehaviour
             pos += gridSize;
         }
         return pos;
-    }
+    }*/
 
     
 
