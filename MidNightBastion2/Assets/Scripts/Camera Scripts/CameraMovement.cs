@@ -4,60 +4,29 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-    public Transform[] trackPoints;
-    public float moveSpeed = 5f;
+    public float moveSpeed = 10f; // Speed of camera movement
+    public float sensitivity = 2f; // Sensitivity for mouse look (optional)
+    public float maxYAngle = 80f; // Max vertical angle for mouse look (optional)
+    private float yaw = 0f; // Current yaw angle (for mouse look)
+    private float pitch = 0f; // Current pitch angle (for mouse look)
 
-    private int currentPointIndex = 0;
-
-    // Update is called once per frame
-     void Update()
+    void Update()
     {
-        if (trackPoints.Length==0)
-        {
-            return;
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            moveForward();
-        }
-        else if (Input.GetKey(KeyCode.A))
-        {
-            MoveBackward();
-        }
-    }
+        // Keyboard movement
+        float horizontal = Input.GetAxis("Horizontal"); // A/D or Left/Right arrow keys
+        float vertical = Input.GetAxis("Vertical"); // W/S or Up/Down arrow keys
 
-    private void moveForward()
-    {
-        if (currentPointIndex < trackPoints.Length-1)
+        Vector3 moveDirection = (transform.forward * vertical + transform.right * horizontal).normalized;
+        transform.position += moveDirection * moveSpeed * Time.deltaTime;
+
+        // Mouse look (optional)
+        if (Input.GetMouseButton(1)) // Right mouse button
         {
-            Transform targetPoint = trackPoints[currentPointIndex + 1];
-            moveTowards(targetPoint);
+            yaw += sensitivity * Input.GetAxis("Mouse X");
+            pitch -= sensitivity * Input.GetAxis("Mouse Y");
+            pitch = Mathf.Clamp(pitch, -maxYAngle, maxYAngle);
 
-            if (Vector3.Distance(transform.position, targetPoint.position) < 0.1f) ;
-            {
-                currentPointIndex++ ;
-            }
+            transform.eulerAngles = new Vector3(pitch, yaw, 0f);
         }
-    }
-
-    private void MoveBackward()
-    {
-        if (currentPointIndex > 0)
-        {
-            Transform targetPoint = trackPoints[currentPointIndex - 1];
-            moveTowards(targetPoint);
-
-            if (Vector3.Distance(transform.position, targetPoint.position) <0.1f)
-            {
-                currentPointIndex--;
-            }
-        }
-    }
-
-    private void moveTowards(Transform targetPoint)
-    {
-        Vector3 direction = (targetPoint.position - transform.position).normalized;
-        transform.position += direction * moveSpeed * Time.deltaTime;
-        transform.LookAt(targetPoint);
     }
 }
