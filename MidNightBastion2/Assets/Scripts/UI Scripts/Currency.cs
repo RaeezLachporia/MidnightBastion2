@@ -45,6 +45,6 @@ public class Currency : MonoBehaviour
     }
     void UpdateCurrencyUI()
     {
-        currencyText.text = "Currency: " + currencyText.ToString();
+        currencyText.text = "Currency: " + currentCurrency.ToString();
     }
 }
