@@ -613,7 +613,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0040554805, y: 0.9940155, z: -0.101715736, w: 0.039632138}
+  m_LocalRotation: {x: 0.004440792, y: 0.99386346, z: -0.101636596, w: 0.043424718}
   m_LocalPosition: {x: 116.6491, y: 61.3, z: 309.2858}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -990,7 +990,7 @@ MonoBehaviour:
   m_Priority: 11
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 1208966117}
-  m_Follow: {fileID: 0}
+  m_Follow: {fileID: 1823451651}
   m_Lens:
     FieldOfView: 60.000004
     OrthographicSize: 5
@@ -1018,12 +1018,78 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1547554364}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0040554805, y: 0.9940155, z: -0.101715736, w: 0.039632138}
-  m_LocalPosition: {x: 128.4, y: 61.3, z: -63.3}
+  m_LocalRotation: {x: 0.07534578, y: 0.66843945, z: -0.068357386, w: 0.7367761}
+  m_LocalPosition: {x: -371.82632, y: 0, z: -12.559479}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1251774560}
+  m_Father: {fileID: 1823451651}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1564683372
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1564683375}
+  - component: {fileID: 1564683374}
+  - component: {fileID: 1564683373}
+  m_Layer: 0
+  m_Name: KillBox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1564683373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1564683372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f1c042dd7127cf48a258ecfc9a201a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &1564683374
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1564683372}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 286.8858, y: 26.076504, z: 276.91534}
+  m_Center: {x: -40.81604, y: -12.538252, z: -2.8345337}
+--- !u!4 &1564683375
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1564683372}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 171.7, y: -35, z: 129.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1601577504
@@ -1169,6 +1235,56 @@ MonoBehaviour:
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 41ce6a01dbb6e11469d1dc810fbf1932, type: 2}
   m_BuildHeightMesh: 0
+--- !u!1 &1823451649
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1823451651}
+  - component: {fileID: 1823451650}
+  m_Layer: 0
+  m_Name: Dolly Cart
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1823451650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1823451649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99a9c787e5d1bbf48a389834c4a9641c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Path: {fileID: 1513953284}
+  m_UpdateMethod: 0
+  m_PositionUnits: 1
+  m_Speed: 180.5
+  m_Position: 0
+--- !u!4 &1823451651
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1823451649}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0.7105824, z: 0, w: 0.70361406}
+  m_LocalPosition: {x: 125.54373, y: 61.3, z: -62.646214}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1547554366}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1909109058
 GameObject:
   m_ObjectHideFlags: 0
@@ -1480,7 +1596,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6815361965518823447, guid: c000c013f584b0640891cc780654ddf6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 131.2
+      value: 132.6
       objectReference: {fileID: 0}
     - target: {fileID: 6815361965518823447, guid: c000c013f584b0640891cc780654ddf6, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1549,11 +1665,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4409006003016145228, guid: f83df628b81af974fae45fbd900c457b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 13.31
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 4409006003016145228, guid: f83df628b81af974fae45fbd900c457b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 17
+      value: 242.4
       objectReference: {fileID: 0}
     - target: {fileID: 4409006003016145228, guid: f83df628b81af974fae45fbd900c457b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1604,9 +1720,10 @@ SceneRoots:
   - {fileID: 568312433}
   - {fileID: 1052069170}
   - {fileID: 1513953285}
-  - {fileID: 1547554366}
   - {fileID: 554721911}
   - {fileID: 595235959}
   - {fileID: 1462301616}
   - {fileID: 161969863}
   - {fileID: 2134902296}
+  - {fileID: 1564683375}
+  - {fileID: 1823451651}
