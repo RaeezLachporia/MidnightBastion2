@@ -188,6 +188,7 @@ MonoBehaviour:
   startingCurrency: 25
   towerCost: 10
   currencyText: {fileID: 1939173735}
+  currentCurrency: 0
 --- !u!1 &1248273415
 GameObject:
   m_ObjectHideFlags: 0
