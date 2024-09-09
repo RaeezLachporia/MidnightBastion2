@@ -16,6 +16,7 @@ public class TowerPlacement : MonoBehaviour
     private RaycastHit hit;
     [SerializeField] private LayerMask layerMask;
 
+    private Currency money;
     //public PlacementZones placementZones;
 
     //public float gridSize;
@@ -27,6 +28,7 @@ public class TowerPlacement : MonoBehaviour
     void Start()
     {
         //placementZones = FindObjectOfType<PlacementZones>();
+        money = FindObjectOfType<Currency>();
     }
 
     // Update is called once per frame
@@ -41,15 +43,17 @@ public class TowerPlacement : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
 
-                PlaceTower();
-                /*if(IsPositionValid(pos))
+                if (money.currentCurrency >= money.towerCost)
                 {
-                    PlaceTower();
+                    PlaceTower();  // Place the tower if there is enough currency
+                    money.PlaceTower();  // Deduct the currency
                 }
                 else
                 {
                     Debug.Log("Invalid Placement");
-                }*/
+
+                    placeholderObject = null;
+                }
             }
 
 
@@ -79,13 +83,18 @@ public class TowerPlacement : MonoBehaviour
     {
         //placeholderObject = Instantiate(objects[index], pos, transform.rotation); this is the old code that cuased the towers to be placed in the wrong orientation.
 
+        if (money.currentCurrency >= money.towerCost)
+        {
+            float terrainHeight = Terrain.activeTerrain.SampleHeight(pos);
 
-        float terrainHeight = Terrain.activeTerrain.SampleHeight(pos);
+            Vector3 adjustedPos = new Vector3(pos.x, terrainHeight, pos.z);
 
-        Vector3 adjustedPos = new Vector3(pos.x, terrainHeight, pos.z);
-
-        placeholderObject = Instantiate(objects[index], adjustedPos, Quaternion.Euler(-90, 0, 0));  //causes tower when placed to be placed at -90 degrees so it is upright
-
+            placeholderObject = Instantiate(objects[index], adjustedPos, Quaternion.Euler(-90, 0, 0));  //causes tower when placed to be placed at -90 degrees so it is upright
+        }
+        else
+        {
+            Debug.Log("ur broke");
+        }
         
         
     }

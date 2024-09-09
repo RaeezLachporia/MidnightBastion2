@@ -24,10 +24,19 @@ public class Currency : MonoBehaviour
     
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (currentCurrency == towerCost)
         {
-            PlaceTower();
+            if (Input.GetMouseButton(0))
+            {
+                PlaceTower();
+            }
         }
+        else if (currentCurrency > towerCost)
+        {
+            return;
+        }
+
+        
     }
     public void PlaceTower()
     {
@@ -47,4 +56,13 @@ public class Currency : MonoBehaviour
     {
         currencyText.text = "Currency: " + currentCurrency.ToString();
     }
+    /*public void ButtonDisable()
+    {
+        if (currentCurrency > towerCost)
+        {
+            this.ButtonDisable();
+        }
+
+    }*/
+
 }
