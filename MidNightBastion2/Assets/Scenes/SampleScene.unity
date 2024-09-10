@@ -1120,7 +1120,7 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: 0.004440792, y: 0.99386346, z: -0.101636596, w: 0.043424718}
-  m_LocalPosition: {x: 116.6491, y: 61.3, z: 309.2858}
+  m_LocalPosition: {x: 131.5, y: 67.9, z: 139.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2662,6 +2662,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 291298494197026101, guid: 7891371e2b9c03145886f1f8f32dc152, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.715
+      objectReference: {fileID: 0}
     - target: {fileID: 518865340914011610, guid: 7891371e2b9c03145886f1f8f32dc152, type: 3}
       propertyPath: EnemyTower
       value: 
