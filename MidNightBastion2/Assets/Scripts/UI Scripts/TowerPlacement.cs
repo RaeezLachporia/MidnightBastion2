@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using TMPro;
 
 
 
@@ -17,6 +18,7 @@ public class TowerPlacement : MonoBehaviour
     [SerializeField] private LayerMask layerMask;
 
     private Currency money;
+    private EnemyController updateCurrency;
     //public PlacementZones placementZones;
 
     //public float gridSize;
@@ -43,7 +45,7 @@ public class TowerPlacement : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
 
-                if (money.currentCurrency >= money.towerCost)
+                if (money.presentCurrency >= money.towerCost)
                 {
                     PlaceTower();  // Place the tower if there is enough currency
                     money.PlaceTower();  // Deduct the currency
@@ -83,7 +85,7 @@ public class TowerPlacement : MonoBehaviour
     {
         //placeholderObject = Instantiate(objects[index], pos, transform.rotation); this is the old code that cuased the towers to be placed in the wrong orientation.
 
-        if (money.currentCurrency >= money.towerCost)
+        if (money.presentCurrency >= money.towerCost)
         {
             float terrainHeight = Terrain.activeTerrain.SampleHeight(pos);
 
