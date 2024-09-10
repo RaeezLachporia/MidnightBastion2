@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using TMPro;
 
 
 
@@ -17,6 +18,7 @@ public class TowerPlacement : MonoBehaviour
     [SerializeField] private LayerMask layerMask;
 
     private Currency money;
+    private EnemyController updateCurrency;
     //public PlacementZones placementZones;
 
     //public float gridSize;
@@ -43,7 +45,7 @@ public class TowerPlacement : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
 
-                if (money.currentCurrency >= money.towerCost)
+                if (money.presentCurrency >= money.towerCost)
                 {
                     PlaceTower();  // Place the tower if there is enough currency
                     money.PlaceTower();  // Deduct the currency
@@ -83,13 +85,15 @@ public class TowerPlacement : MonoBehaviour
     {
         //placeholderObject = Instantiate(objects[index], pos, transform.rotation); this is the old code that cuased the towers to be placed in the wrong orientation.
 
-        if (money.currentCurrency >= money.towerCost)
+        if (money.presentCurrency >= money.towerCost)
         {
             float terrainHeight = Terrain.activeTerrain.SampleHeight(pos);
 
             Vector3 adjustedPos = new Vector3(pos.x, terrainHeight, pos.z);
 
             placeholderObject = Instantiate(objects[index], adjustedPos, Quaternion.Euler(-90, 0, 0));  //causes tower when placed to be placed at -90 degrees so it is upright
+
+            
         }
         else
         {
@@ -99,37 +103,7 @@ public class TowerPlacement : MonoBehaviour
         
     }
 
-    /*private bool IsPositionValid(Vector3 towerPosition)
-    {
-        foreach(Rect zone in placementZones.validTowerZones)
-        {
-            if(zone.Contains(new Vector2(towerPosition.x, towerPosition.z)))
-            {
-                return true;
-            }
-        }
-        return false;
-    }*/
-
-    /*public void Grid()
-    {
-        if(gridToggle.isOn)
-        {
-            gridOn = true;
-        }
-        else { gridOn = false; }
-    }
-
-    float ClosestGrid(float pos)
-    {
-        float xDiff = pos % gridSize;
-        pos -= xDiff;
-        if(xDiff > (gridSize / 2))
-        {
-            pos += gridSize;
-        }
-        return pos;
-    }*/
+    
 
     
 
