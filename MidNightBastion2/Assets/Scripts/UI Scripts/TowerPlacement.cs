@@ -19,17 +19,13 @@ public class TowerPlacement : MonoBehaviour
 
     private Currency money;
     private EnemyController updateCurrency;
-    //public PlacementZones placementZones;
-
-    //public float gridSize;
-    //bool gridOn = true;
-    //[SerializeField] private Toggle gridToggle;
+    
 
 
-    // Start is called before the first frame update
+    
     void Start()
     {
-        //placementZones = FindObjectOfType<PlacementZones>();
+        
         money = FindObjectOfType<Currency>();
     }
 
@@ -75,7 +71,7 @@ public class TowerPlacement : MonoBehaviour
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        if(Physics.Raycast(ray, out hit, 1000, layerMask))
+        if(Physics.Raycast(ray, out hit, 1000, layerMask))//raycats system to allow for towers to be placed on terrain and not in it
         {
             pos = hit.point;
         }
@@ -101,37 +97,7 @@ public class TowerPlacement : MonoBehaviour
         
     }
 
-    /*private bool IsPositionValid(Vector3 towerPosition)
-    {
-        foreach(Rect zone in placementZones.validTowerZones)
-        {
-            if(zone.Contains(new Vector2(towerPosition.x, towerPosition.z)))
-            {
-                return true;
-            }
-        }
-        return false;
-    }*/
-
-    /*public void Grid()
-    {
-        if(gridToggle.isOn)
-        {
-            gridOn = true;
-        }
-        else { gridOn = false; }
-    }
-
-    float ClosestGrid(float pos)
-    {
-        float xDiff = pos % gridSize;
-        pos -= xDiff;
-        if(xDiff > (gridSize / 2))
-        {
-            pos += gridSize;
-        }
-        return pos;
-    }*/
+   
 
     
 

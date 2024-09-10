@@ -10,9 +10,9 @@ public class EnemyController : MonoBehaviour
     public float health = 100f;
     public float MaxHealth = 100f;
 
-    public int currencyDrop = 5;
+    public int currencyDrop = 5; //currency amount that enemies drop
 
-    private Currency currencyPickup;
+    private Currency currencyPickup; //reference to currency script
     private void Awake()
     {
         HPbar = GetComponentInChildren<EnemyHealthBar>();
@@ -24,7 +24,7 @@ public class EnemyController : MonoBehaviour
         HPbar.UpdateHealthBar(health, MaxHealth);
         if (health<=0)
         {
-            Destroyed();
+            Destroyed(); //calls upon destroyed method that adds currency and destoys dead ai
         }
     }
     void Destroyed()

@@ -18,6 +18,6 @@ public class TowerHealth : MonoBehaviour
     }
 
 
-
+    //this script is a carbon copy of the aihealth script and merely acts in place for the tower health
 
 }

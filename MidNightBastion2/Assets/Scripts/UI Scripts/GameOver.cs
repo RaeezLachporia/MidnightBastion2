@@ -19,12 +19,12 @@ public class GameOver : MonoBehaviour
 
     public void Restart()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("SampleScene"); //loads game scene and sets time to 1 so that it is not paused
         Time.timeScale = 1f;
     }
     public void Quit()
     {
-        Application.Quit();
+        Application.Quit(); 
     }
     public void MainMenu()
     {

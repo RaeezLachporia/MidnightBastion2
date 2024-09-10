@@ -7,8 +7,8 @@ using UnityEngine.UI;
 public class Currency : MonoBehaviour
 {
 
-    [SerializeField] public int startingCurrency = 15;
-    [SerializeField] public int towerCost = 10;
+    [SerializeField] public int startingCurrency = 15; //players starting currency
+    [SerializeField] public int towerCost = 10;//tower cost
     [SerializeField] public TMP_Text currencyText;
 
     [SerializeField] public int presentCurrency;
@@ -17,7 +17,7 @@ public class Currency : MonoBehaviour
 
     void Start()
     {
-        presentCurrency = startingCurrency;
+        presentCurrency = startingCurrency;//on start game checks for starting currency and makes it the present currency using the CurrencyUI method
         CurrencyUI();
     }
 
@@ -26,7 +26,7 @@ public class Currency : MonoBehaviour
     {
         if (presentCurrency == towerCost)
         {
-            if (Input.GetMouseButton(0))
+            if (Input.GetMouseButton(0)) //if player presses left mouse button game checks for what present currency is and if the player cna afford if not then the return method runs
             {
                 PlaceTower();
             }
