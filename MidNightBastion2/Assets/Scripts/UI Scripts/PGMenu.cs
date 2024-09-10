@@ -22,6 +22,7 @@ public class PGMenu : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene("SampleScene");
+        Time.timeScale = 1f;
     }
 
     public void BackMain()
