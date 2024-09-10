@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class Currency : MonoBehaviour
 {
 
-    [SerializeField] public int startingCurrency = 25;
+    [SerializeField] public int startingCurrency = 15;
     [SerializeField] public int towerCost = 10;
     [SerializeField] public TMP_Text currencyText;
 
