@@ -13,9 +13,9 @@ public class TowerHpScript : MonoBehaviour
         TowerHP = GetComponent<TowerHealth>();
     }
 
-    public void towerTakingDamage(float Tamount)
+    public void towerTakingDamage(float amount)
     {
-        Thealth -= Tamount;
+        Thealth -= amount;
         TowerHP.UpdateTowerHealth(Thealth, TmaxHP);
 
         if (Thealth<=0)
