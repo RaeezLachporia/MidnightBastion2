@@ -152,9 +152,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2097a82ad111af04089f698da9b46d71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyDetectionRadius: 10
+  enemyDetectionRadius: 100
   fireRate: 1
   projectile: {fileID: 3279576168450879500, guid: a9fa20222d24d1549a0c4a2c6794e263, type: 3}
   shootPosition: {fileID: 6759874440398986638}
-  EnemyTarget: {fileID: 0}
-  nextShotTimer: 1
+  EnemyTarget: {fileID: 8361842945027973442, guid: 0e140b0ce92f02b4882bb9b06d13c499, type: 3}
+  nextShotTimer: 8
