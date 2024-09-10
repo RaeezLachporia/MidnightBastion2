@@ -7,31 +7,31 @@ using UnityEngine.UI;
 public class Currency : MonoBehaviour
 {
 
-    [SerializeField] public int startingCurrency = 25;
+    [SerializeField] public int startingCurrency = 15;
     [SerializeField] public int towerCost = 10;
     [SerializeField] public TMP_Text currencyText;
 
-    [SerializeField] public int currentCurrency;
+    [SerializeField] public int presentCurrency;
 
 
 
     void Start()
     {
-        currentCurrency = startingCurrency;
-        UpdateCurrencyUI();
+        presentCurrency = startingCurrency;
+        CurrencyUI();
     }
 
     
     void Update()
     {
-        if (currentCurrency == towerCost)
+        if (presentCurrency == towerCost)
         {
             if (Input.GetMouseButton(0))
             {
                 PlaceTower();
             }
         }
-        else if (currentCurrency > towerCost)
+        else if (presentCurrency > towerCost)
         {
             return;
         }
@@ -40,29 +40,28 @@ public class Currency : MonoBehaviour
     }
     public void PlaceTower()
     {
-        if(currentCurrency>= towerCost)
+        if(presentCurrency >= towerCost)
         {
-            currentCurrency -= towerCost;
-            UpdateCurrencyUI();
+            presentCurrency -= towerCost; //checks if player has enough money to place tower if not the they will not be able to
+            CurrencyUI(); //calls CurrencyUI method and uses it to update the currency to the textbox
 
-            Debug.Log("Tower Place. Remaining currency:  " + currentCurrency);
+            
         }
         else
         {
-            Debug.Log("No Resources");
+            Debug.Log("No Moneys");
         }
     }
-    void UpdateCurrencyUI()
+    void CurrencyUI()
     {
-        currencyText.text = "Currency: " + currentCurrency.ToString();
+        currencyText.text = "Currency: " + presentCurrency.ToString(); //updates currency UI textbox
     }
-    /*public void ButtonDisable()
+    public void AIGivesCurrency(int moneygiven) //method that is used for the AI to give currency to player when they die
     {
-        if (currentCurrency > towerCost)
-        {
-            this.ButtonDisable();
-        }
+        
+        presentCurrency += moneygiven;
+        CurrencyUI();
 
-    }*/
+    }
 
 }
