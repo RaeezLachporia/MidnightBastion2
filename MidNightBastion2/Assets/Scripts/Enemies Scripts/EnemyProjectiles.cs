@@ -9,6 +9,7 @@ public class EnemyProjectiles : MonoBehaviour
     public float lifetime = 10f;
     void Start()
     {
+        //destroys the projectiles after they have been moving for a certain time
         Destroy(gameObject, lifetime);
     }
 
@@ -20,6 +21,7 @@ public class EnemyProjectiles : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        // checks if the projectiles that are fired from the enemies are colliding with any object that is tagged with tower 
         if (collision.gameObject.CompareTag("Tower"))
         {
             var tower = collision.gameObject.GetComponent<TowerHpScript>();

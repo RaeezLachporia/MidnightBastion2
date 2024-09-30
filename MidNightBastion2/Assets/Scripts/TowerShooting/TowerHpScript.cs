@@ -16,11 +16,10 @@ public class TowerHpScript : MonoBehaviour
     public void towerTakingDamage(float amount)
     {
         Thealth -= amount;
-        TowerHP.UpdateTowerHealth(Thealth, TmaxHP);
-
+        TowerHP.UpdateTowerHealth(Thealth, TmaxHP); //updates the tower hp on the sliders on all the towers that are placed
         if (Thealth<=0)
         {
-            Destroy(gameObject);
+            Destroy(gameObject);// destroys the tower once the hp reaches 0
         }
     }
 }

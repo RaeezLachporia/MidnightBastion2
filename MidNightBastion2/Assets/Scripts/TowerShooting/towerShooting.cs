@@ -28,7 +28,7 @@ public class towerShooting : MonoBehaviour
         {
             Vector3 direction = (EnemyTarget.position - shootPosition.position).normalized;
             shootPosition.forward = direction;
-
+            //creates the projectile that is going to shoot at the enemies 
             Instantiate(projectile, shootPosition.position, Quaternion.LookRotation(direction));
             nextShotTimer = Time.time + 1f / nextShotTimer;
         }
