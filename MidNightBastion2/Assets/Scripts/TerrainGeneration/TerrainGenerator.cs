@@ -9,8 +9,8 @@ public class TerrainGenerator : MonoBehaviour
     public int width = 300;
     public int height = 300;
     public float scale = 20f;
-    public float offSetX = 200f;
-    public float offSetY = 200f;
+    public float offSetX = 100f;
+    public float offSetY = 100f;
     private void Start()
     {
         offSetX = Random.Range(0f, 9999f);
