@@ -131,6 +131,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 383180653545670503, guid: 74f59e6b751604e4a880f79682dfd3cb, type: 3}
+      propertyPath: enemyDetectionRadius
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 744774457895310262, guid: 74f59e6b751604e4a880f79682dfd3cb, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -273,7 +277,7 @@ PrefabInstance:
     - target: {fileID: 518865340914011610, guid: 7891371e2b9c03145886f1f8f32dc152, type: 3}
       propertyPath: EnemyTower
       value: 
-      objectReference: {fileID: 1936306218}
+      objectReference: {fileID: 1009352099}
     - target: {fileID: 917244080816040473, guid: 7891371e2b9c03145886f1f8f32dc152, type: 3}
       propertyPath: movePostionTransform
       value: 
@@ -288,7 +292,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7305789225975861239, guid: 7891371e2b9c03145886f1f8f32dc152, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 488.17
+      value: 549.05
       objectReference: {fileID: 0}
     - target: {fileID: 7305789225975861239, guid: 7891371e2b9c03145886f1f8f32dc152, type: 3}
       propertyPath: m_LocalPosition.y
@@ -296,7 +300,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7305789225975861239, guid: 7891371e2b9c03145886f1f8f32dc152, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 346
+      value: 295.7
       objectReference: {fileID: 0}
     - target: {fileID: 7305789225975861239, guid: 7891371e2b9c03145886f1f8f32dc152, type: 3}
       propertyPath: m_LocalRotation.w
@@ -335,6 +339,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7891371e2b9c03145886f1f8f32dc152, type: 3}
+--- !u!4 &1009352099 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8238300771930029266, guid: 74f59e6b751604e4a880f79682dfd3cb, type: 3}
+  m_PrefabInstance: {fileID: 355567712}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1248273415
 GameObject:
   m_ObjectHideFlags: 0
