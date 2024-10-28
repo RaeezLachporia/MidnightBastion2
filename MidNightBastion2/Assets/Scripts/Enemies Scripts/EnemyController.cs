@@ -27,7 +27,7 @@ public class EnemyController : MonoBehaviour
             Destroyed(); //calls upon destroyed method that adds currency and destoys dead ai
         }
     }
-    void Destroyed()
+    public void Destroyed()
     {
         currencyPickup.AIGivesCurrency(currencyDrop);
 

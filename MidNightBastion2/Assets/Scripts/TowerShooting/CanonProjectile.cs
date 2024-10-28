@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CanonProjectile : MonoBehaviour
 {
-
     public float speed = 10f;
     public float damage = 50f;
     public float lifetime = 5f;
