@@ -4,22 +4,27 @@ using UnityEngine;
 
 public class TowerHpScript : MonoBehaviour
 {
-    [SerializeField] TowerHealth TowerHP;
+    [SerializeField] private TowerHealth TowerHP;
     public float Thealth = 100f;
     public float TmaxHP = 100f;
 
     private void Awake()
     {
-        TowerHP = GetComponent<TowerHealth>();
+        if (TowerHP == null)
+        {
+            TowerHP = GetComponent<TowerHealth>();
+        }
     }
 
     public void towerTakingDamage(float amount)
     {
         Thealth -= amount;
-        TowerHP.UpdateTowerHealth(Thealth, TmaxHP); //updates the tower hp on the sliders on all the towers that are placed
-        if (Thealth<=0)
+        Thealth = Mathf.Clamp(Thealth, 0, TmaxHP); // Prevents health from going below 0
+        TowerHP.UpdateTowerHealth(Thealth, TmaxHP);
+
+        if (Thealth <= 0)
         {
-            Destroy(gameObject);// destroys the tower once the hp reaches 0
+            Destroy(gameObject); // Destroys the tower when health reaches 0
         }
     }
 }

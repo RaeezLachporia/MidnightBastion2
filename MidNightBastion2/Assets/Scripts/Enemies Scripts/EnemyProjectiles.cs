@@ -27,7 +27,7 @@ public class EnemyProjectiles : MonoBehaviour
             var tower = collision.gameObject.GetComponent<TowerHpScript>();
             if (tower != null)
             {
-                tower.towerTakingDamage(damage);
+                tower.towerTakingDamage(tower.Thealth - damage);
             }
 
             Destroy(gameObject);
