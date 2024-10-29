@@ -1039,7 +1039,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objects:
   - {fileID: 644567833107934253, guid: 83b2d717bbe62a34e8fbbc3f3c7b536f, type: 3}
-  - {fileID: 5977389130993873448, guid: 0fab0ad0a7872734ea0721377b6f0cbd, type: 3}
+  - {fileID: 2628186440063936715, guid: 2a29c1f0046085f4fa80e6aba1dabf60, type: 3}
   - {fileID: 4537978984518855655, guid: 8324e962044b3b244a194f7a5526b952, type: 3}
   layerMask:
     serializedVersion: 2
@@ -1057,9 +1057,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingCurrency: 15
-  towerCost: 10
+  towerCosts: 0a0000001900000023000000
   currencyText: {fileID: 1376412331}
   presentCurrency: 0
+  currentTowerCost: 0
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -2638,7 +2639,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Cost #1: 15'
+  m_text: 'Cost #1: 10'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
