@@ -19,10 +19,16 @@ public class TowerPlacement : MonoBehaviour
 
     private Currency money;
     private EnemyController updateCurrency;
-    
+
+    private Quaternion[] towerRotations = {
+        Quaternion.Euler(-90, 0, 0), // Tower 1 rotation
+        Quaternion.Euler(-90, 0, 0),   // Tower 2 rotation
+        Quaternion.Euler(0, 0, 0)  // Tower 3 rotation
+    };
 
 
-    
+
+
     void Start()
     {
         
@@ -87,7 +93,10 @@ public class TowerPlacement : MonoBehaviour
 
             Vector3 adjustedPos = new Vector3(pos.x, terrainHeight, pos.z);
 
-            placeholderObject = Instantiate(objects[index], adjustedPos, Quaternion.Euler(-90, 0, 0));  //causes tower when placed to be placed at -90 degrees so it is upright
+
+            //placeholderObject = Instantiate(objects[index], adjustedPos, Quaternion.Euler(-90, 0, 0));  //causes tower when placed to be placed at -90 degrees so it is upright
+            placeholderObject = Instantiate(objects[index], adjustedPos, towerRotations[index]);
+
         }
         else
         {
