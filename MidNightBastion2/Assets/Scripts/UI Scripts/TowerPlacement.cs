@@ -47,7 +47,7 @@ public class TowerPlacement : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
 
-                if (money.presentCurrency >= money.towerCost)
+                if (money.presentCurrency >= money.currentTowerCost)
                 {
                     PlaceTower();  // Place the tower if there is enough currency
                     money.PlaceTower();  // Deduct the currency
@@ -86,9 +86,10 @@ public class TowerPlacement : MonoBehaviour
     public void TowerChoice(int index)
     {
         //placeholderObject = Instantiate(objects[index], pos, transform.rotation); this is the old code that cuased the towers to be placed in the wrong orientation.
-
-        if (money.presentCurrency >= money.towerCost)
+        money.SetTowerCost(index);
+        if (money.presentCurrency >= money.currentTowerCost)
         {
+            ;
             float terrainHeight = Terrain.activeTerrain.SampleHeight(pos);
 
             Vector3 adjustedPos = new Vector3(pos.x, terrainHeight, pos.z);
