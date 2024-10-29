@@ -7,12 +7,19 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
 
    [SerializeField] private GameObject EnemyType1;
+    [SerializeField] private GameObject EnemyType2;
+    [SerializeField] private GameObject EnemyType3;
 
-   [SerializeField] private float SpawnInterval = 3.5f;
+    [SerializeField] private float archerInterval = 3.5f;
+    [SerializeField] private float assassinInterval = 3.5f;
+    [SerializeField] private float bruteInterval = 3.5f;
+
 
     void Start()
     {
-        StartCoroutine(spawnEnemy(SpawnInterval, EnemyType1));
+        StartCoroutine(spawnEnemy(archerInterval, EnemyType1));
+        StartCoroutine(spawnEnemy(assassinInterval, EnemyType2));
+        StartCoroutine(spawnEnemy(bruteInterval, EnemyType3));
     }
 
    private IEnumerator spawnEnemy(float interval, GameObject enemy)// spawns enemies at random points on the generated terrain 
