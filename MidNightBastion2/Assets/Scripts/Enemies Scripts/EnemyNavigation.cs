@@ -9,7 +9,7 @@ public class EnemyNavigation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        movePostionTransform = GameObject.Find("Tower").transform;
     }
     private void Awake()
     {
