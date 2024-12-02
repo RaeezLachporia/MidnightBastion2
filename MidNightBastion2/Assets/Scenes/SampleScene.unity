@@ -9626,6 +9626,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Tower
       objectReference: {fileID: 0}
+    - target: {fileID: 4801459097957613639, guid: c000c013f584b0640891cc780654ddf6, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e0de5d7e5da1eef41b5172ccb8aa2088, type: 2}
     - target: {fileID: 6815361965518823447, guid: c000c013f584b0640891cc780654ddf6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 259.4
