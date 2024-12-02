@@ -9,108 +9,90 @@ using TMPro;
 
 public class TowerPlacement : MonoBehaviour
 {
-    public GameObject[] objects;
-    private GameObject placeholderObject; 
+    public LayerMask layerMask; // Layer mask for valid placement surfaces
 
-    private Vector3 pos;
-
+    private GameObject placeholderObject;
+    private Vector3 placementPosition;
     private RaycastHit hit;
-    [SerializeField] private LayerMask layerMask;
 
-    private Currency money;
-    private EnemyController updateCurrency;
+    private Currency currencyManager;
+    private UpgradeTower1 upgradeManager;
 
     private Quaternion[] towerRotations = {
         Quaternion.Euler(-90, 0, 0), // Tower 1 rotation
-        Quaternion.Euler(-90, 0, 0),   // Tower 2 rotation
-        Quaternion.Euler(0, 0, 0)  // Tower 3 rotation
+        Quaternion.Euler(-90, 0, 0), // Tower 2 rotation
+        Quaternion.Euler(0, 0, 0)    // Tower 3 rotation
     };
 
-
-
-
-    void Start()
+    private void Start()
     {
-        
-        money = FindObjectOfType<Currency>();
+        currencyManager = FindObjectOfType<Currency>();
+        upgradeManager = FindObjectOfType<UpgradeTower1>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if(placeholderObject != null)
+        if (placeholderObject != null)
         {
-            placeholderObject.transform.position = pos;
-
-
+            // Update placeholder position to follow the mouse
+            placeholderObject.transform.position = placementPosition;
 
             if (Input.GetMouseButtonDown(0))
             {
-
-                if (money.presentCurrency >= money.currentTowerCost)
+                // Place tower if sufficient currency is available
+                if (currencyManager.presentCurrency >= currencyManager.currentTowerCost)
                 {
-                    PlaceTower();  // Place the tower if there is enough currency
-                    money.PlaceTower();  // Deduct the currency
+                    PlaceTower();
+                    currencyManager.PlaceTower();
                 }
                 else
                 {
-                    Debug.Log("Invalid Placement");
-
+                    Debug.Log("Insufficient currency to place tower.");
+                    Destroy(placeholderObject);
                     placeholderObject = null;
                 }
             }
-
-
         }
-
-
-        
-
-    }
-
-    public void PlaceTower()
-    {
-        placeholderObject = null;
     }
 
     private void FixedUpdate()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        if(Physics.Raycast(ray, out hit, 1000, layerMask))//raycats system to allow for towers to be placed on terrain and not in it
+        if (Physics.Raycast(ray, out hit, 1000, layerMask))
         {
-            pos = hit.point;
+            placementPosition = hit.point;
         }
     }
 
-    public void TowerChoice(int index)
+    public void TowerChoice(int towerIndex)
     {
-        //placeholderObject = Instantiate(objects[index], pos, transform.rotation); this is the old code that cuased the towers to be placed in the wrong orientation.
-        money.SetTowerCost(index);
-        if (money.presentCurrency >= money.currentTowerCost)
+        currencyManager.SetTowerCost(towerIndex);
+
+        if (currencyManager.presentCurrency >= currencyManager.currentTowerCost)
         {
-            ;
-            float terrainHeight = Terrain.activeTerrain.SampleHeight(pos);
+            // Get tower prefab based on the index and upgrade level
+            GameObject towerPrefab = upgradeManager.GetUpgradedTowerPrefab(towerIndex);
+            if (towerPrefab == null)
+            {
+                Debug.LogError($"Tower prefab for index {towerIndex} is null.");
+                return;
+            }
 
-            Vector3 adjustedPos = new Vector3(pos.x, terrainHeight, pos.z);
+            float terrainHeight = Terrain.activeTerrain.SampleHeight(placementPosition);
+            Vector3 adjustedPosition = new Vector3(placementPosition.x, terrainHeight, placementPosition.z);
 
-
-            //placeholderObject = Instantiate(objects[index], adjustedPos, Quaternion.Euler(-90, 0, 0));  //causes tower when placed to be placed at -90 degrees so it is upright
-            placeholderObject = Instantiate(objects[index], adjustedPos, towerRotations[index]);
-
+            placeholderObject = Instantiate(towerPrefab, adjustedPosition, towerRotations[towerIndex]);
         }
         else
         {
-            Debug.Log("ur broke");
+            Debug.Log("Not enough currency to select this tower.");
         }
-        
-        
     }
 
-   
-
-    
-
-
-    
+    private void PlaceTower()
+    {
+        // Finalize tower placement
+        placeholderObject = null;
+    }
 }

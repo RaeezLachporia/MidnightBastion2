@@ -127,6 +127,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5977389130993873448, guid: 0fab0ad0a7872734ea0721377b6f0cbd, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3989881119698643240}
+    - targetCorrespondingSourceObject: {fileID: 5977389130993873448, guid: 0fab0ad0a7872734ea0721377b6f0cbd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -6415837038209169669}
   m_SourcePrefab: {fileID: 100100000, guid: 0fab0ad0a7872734ea0721377b6f0cbd, type: 3}
 --- !u!1 &2628186440063936715 stripped
 GameObject:
@@ -151,6 +154,21 @@ MonoBehaviour:
   shootPosition: {fileID: 8243779349788396393}
   EnemyTarget: {fileID: 835459648038857158}
   nextShotTimer: 0.2
+--- !u!114 &-6415837038209169669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2628186440063936715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c7f6fcf78ff66e48a61470f4edf408f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TowerHP: {fileID: 0}
+  Thealth: 100
+  TmaxHP: 100
 --- !u!4 &3401028096872297073 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6464955825971259538, guid: 0fab0ad0a7872734ea0721377b6f0cbd, type: 3}
