@@ -443,6 +443,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GADE AOE tower medium Variant Variant 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8679846697823024651, guid: c7840a34f6a0c494999491fe37c44184, type: 3}
+      propertyPath: projectile
+      value: 
+      objectReference: {fileID: 681398226642453943, guid: 55a9a215c3e3ea74a96b5b6714519db9, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

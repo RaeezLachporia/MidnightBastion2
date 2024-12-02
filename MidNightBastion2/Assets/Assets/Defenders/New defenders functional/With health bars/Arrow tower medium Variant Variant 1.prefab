@@ -399,6 +399,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 683446836084831636, guid: 20734595c7729d6418b2d1f924d9a3a1, type: 3}
+      propertyPath: projectile
+      value: 
+      objectReference: {fileID: 681398226642453943, guid: 55a9a215c3e3ea74a96b5b6714519db9, type: 3}
     - target: {fileID: 7136081484693197142, guid: 20734595c7729d6418b2d1f924d9a3a1, type: 3}
       propertyPath: m_Name
       value: Arrow tower medium Variant Variant 1

@@ -555,7 +555,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyDetectionRadius: 100
   fireRate: 1
-  projectile: {fileID: 3279576168450879500, guid: a9fa20222d24d1549a0c4a2c6794e263, type: 3}
+  projectile: {fileID: 6463803414557433668, guid: ffc4ad0cd25066e438f33ec66c228b75, type: 3}
   shootPosition: {fileID: 7034753153290468315}
   EnemyTarget: {fileID: 8361842945027973442, guid: 0e140b0ce92f02b4882bb9b06d13c499, type: 3}
   nextShotTimer: 8
