@@ -206,9 +206,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1970193924}
-        m_TargetAssemblyTypeName: UpgradeTower1, Assembly-CSharp
-        m_MethodName: Continue
+      - m_Target: {fileID: 1970193928}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: Resume
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -584,6 +584,7 @@ GameObject:
   - component: {fileID: 734872124}
   - component: {fileID: 734872125}
   - component: {fileID: 734872126}
+  - component: {fileID: 734872127}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -618,10 +619,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382155d26c0b2be44a18d745f6aa06b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objects:
-  - {fileID: 4571060130323846646, guid: 414168b0bc9d61e4bad0a4baa826c888, type: 3}
-  - {fileID: 6226088390750902009, guid: 23187dfe76dd63e4cb87d37c6ed2e2b1, type: 3}
-  - {fileID: 4391705714864585622, guid: 2ac366a8a33c5b047a538963cd13365c, type: 3}
   layerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -642,6 +639,31 @@ MonoBehaviour:
   currencyText: {fileID: 1939173735}
   presentCurrency: 0
   currentTowerCost: 0
+--- !u!114 &734872127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 734872122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdc7448322833cd4f922f5ab43d9f431, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerPrefabGroups:
+  - prefabs:
+    - {fileID: 6679169278579027181, guid: 89c9140d96a2c584c8a8082bef3bd738, type: 3}
+    - {fileID: 1798430123376326157, guid: 32be773000884dc479f01ef26f355ee4, type: 3}
+    - {fileID: 644567833107934253, guid: 83b2d717bbe62a34e8fbbc3f3c7b536f, type: 3}
+  - prefabs:
+    - {fileID: 9072617532886987703, guid: 98e42b3d429e4e742b5b7cb9e8809a2c, type: 3}
+    - {fileID: 5792310702972757251, guid: 2ecd91e2b6f8948428abd20341fe7488, type: 3}
+    - {fileID: 2628186440063936715, guid: 2a29c1f0046085f4fa80e6aba1dabf60, type: 3}
+  - prefabs:
+    - {fileID: 7279836045416640222, guid: f7f0337273faa95478240e1de0968af9, type: 3}
+    - {fileID: 8445490416304144755, guid: a09ef2c20ad6a594ea5163f4c6ee2249, type: 3}
+    - {fileID: 4537978984518855655, guid: 8324e962044b3b244a194f7a5526b952, type: 3}
 --- !u!1001 &797635060
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1133,7 +1155,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1304897835}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 734872127}
+        m_TargetAssemblyTypeName: UpgradeTower1, Assembly-CSharp
+        m_MethodName: UpgradeTowerTier
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1304897835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1374,7 +1408,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1450635273}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 734872127}
+        m_TargetAssemblyTypeName: UpgradeTower1, Assembly-CSharp
+        m_MethodName: UpgradeTowerTier
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1450635273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1427,11 +1473,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3869141265582879069, guid: 8324e962044b3b244a194f7a5526b952, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.853109
+      value: 4.9
       objectReference: {fileID: 0}
     - target: {fileID: 3869141265582879069, guid: 8324e962044b3b244a194f7a5526b952, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 511.02103
+      value: 695.1
       objectReference: {fileID: 0}
     - target: {fileID: 3869141265582879069, guid: 8324e962044b3b244a194f7a5526b952, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2472,8 +2518,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1970193924}
-        m_TargetAssemblyTypeName: UpgradeTower1, Assembly-CSharp
+      - m_Target: {fileID: 1970193928}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: Pause
         m_Mode: 1
         m_Arguments:
@@ -2669,13 +2715,14 @@ GameObject:
   - component: {fileID: 1970193926}
   - component: {fileID: 1970193925}
   - component: {fileID: 1970193924}
+  - component: {fileID: 1970193928}
   m_Layer: 0
   m_Name: UpgradeMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1970193923
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2712,7 +2759,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdc7448322833cd4f922f5ab43d9f431, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PausePanel: {fileID: 1970193922}
+  towerPrefabGroups: []
 --- !u!114 &1970193925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2776,6 +2823,19 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1970193928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1970193922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff2674120d4afde4ba622877b4af85b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PauseUI: {fileID: 1970193922}
 --- !u!4 &1992954258 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8238300771930029266, guid: 74f59e6b751604e4a880f79682dfd3cb, type: 3}
@@ -2863,7 +2923,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2028574413}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 734872127}
+        m_TargetAssemblyTypeName: UpgradeTower1, Assembly-CSharp
+        m_MethodName: UpgradeTowerTier
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2028574413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3492,67 +3564,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7840a34f6a0c494999491fe37c44184, type: 3}
---- !u!1001 &922029524607051249
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 258810425390850165, guid: aae6444c85f4a7d4195d9b5a6300530e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 144.47343
-      objectReference: {fileID: 0}
-    - target: {fileID: 258810425390850165, guid: aae6444c85f4a7d4195d9b5a6300530e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.00000017028425
-      objectReference: {fileID: 0}
-    - target: {fileID: 258810425390850165, guid: aae6444c85f4a7d4195d9b5a6300530e, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 586.6843
-      objectReference: {fileID: 0}
-    - target: {fileID: 258810425390850165, guid: aae6444c85f4a7d4195d9b5a6300530e, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 258810425390850165, guid: aae6444c85f4a7d4195d9b5a6300530e, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 258810425390850165, guid: aae6444c85f4a7d4195d9b5a6300530e, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 258810425390850165, guid: aae6444c85f4a7d4195d9b5a6300530e, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 258810425390850165, guid: aae6444c85f4a7d4195d9b5a6300530e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 258810425390850165, guid: aae6444c85f4a7d4195d9b5a6300530e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 258810425390850165, guid: aae6444c85f4a7d4195d9b5a6300530e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 638572273529699023, guid: aae6444c85f4a7d4195d9b5a6300530e, type: 3}
-      propertyPath: m_Name
-      value: GADE AOE tower
-      objectReference: {fileID: 0}
-    - target: {fileID: 4794940230599946495, guid: aae6444c85f4a7d4195d9b5a6300530e, type: 3}
-      propertyPath: nextShotTimer
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: aae6444c85f4a7d4195d9b5a6300530e, type: 3}
 --- !u!1001 &2079193746462688190
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4364,7 +4375,6 @@ SceneRoots:
   - {fileID: 6725787374344209909}
   - {fileID: 7031107518696136770}
   - {fileID: 400373640}
-  - {fileID: 922029524607051249}
   - {fileID: 797635060}
   - {fileID: 4826627582198736737}
   - {fileID: 5582237462536055108}
