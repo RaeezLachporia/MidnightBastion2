@@ -5,11 +5,9 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
 
-
-
 public class TowerPlacement : MonoBehaviour
 {
-    public LayerMask layerMask; // Layer mask for valid placement surfaces
+    public LayerMask layerMask;
 
     private GameObject placeholderObject;
     private Vector3 placementPosition;
@@ -34,12 +32,10 @@ public class TowerPlacement : MonoBehaviour
     {
         if (placeholderObject != null)
         {
-            // Update placeholder position to follow the mouse
             placeholderObject.transform.position = placementPosition;
 
             if (Input.GetMouseButtonDown(0))
             {
-                // Place tower if sufficient currency is available
                 if (currencyManager.presentCurrency >= currencyManager.currentTowerCost)
                 {
                     PlaceTower();
@@ -47,7 +43,6 @@ public class TowerPlacement : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("Insufficient currency to place tower.");
                     Destroy(placeholderObject);
                     placeholderObject = null;
                 }
@@ -71,28 +66,19 @@ public class TowerPlacement : MonoBehaviour
 
         if (currencyManager.presentCurrency >= currencyManager.currentTowerCost)
         {
-            // Get tower prefab based on the index and upgrade level
             GameObject towerPrefab = upgradeManager.GetUpgradedTowerPrefab(towerIndex);
-            if (towerPrefab == null)
+            if (towerPrefab != null)
             {
-                Debug.LogError($"Tower prefab for index {towerIndex} is null.");
-                return;
+                float terrainHeight = Terrain.activeTerrain.SampleHeight(placementPosition);
+                Vector3 adjustedPosition = new Vector3(placementPosition.x, terrainHeight, placementPosition.z);
+
+                placeholderObject = Instantiate(towerPrefab, adjustedPosition, towerRotations[towerIndex]);
             }
-
-            float terrainHeight = Terrain.activeTerrain.SampleHeight(placementPosition);
-            Vector3 adjustedPosition = new Vector3(placementPosition.x, terrainHeight, placementPosition.z);
-
-            placeholderObject = Instantiate(towerPrefab, adjustedPosition, towerRotations[towerIndex]);
-        }
-        else
-        {
-            Debug.Log("Not enough currency to select this tower.");
         }
     }
 
     private void PlaceTower()
     {
-        // Finalize tower placement
         placeholderObject = null;
     }
 }

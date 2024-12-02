@@ -2,65 +2,58 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class TowerPrefabGroup
+public class TowerPrefabs
 {
-    public GameObject[] prefabs; // Array for upgrade tiers
+    public GameObject[] prefabs;
 }
 
 public class UpgradeTower1 : MonoBehaviour
 {
     [Header("Tower Prefab Groups")]
-    public List<TowerPrefabGroup> towerPrefabGroups; // Inspector-friendly List
+    public List<TowerPrefabs> towers;
 
     private int[] currentTiers;
 
     private void Start()
     {
-        currentTiers = new int[towerPrefabGroups.Count];
+        currentTiers = new int[towers.Count];
 
-        for (int i = 0; i < towerPrefabGroups.Count; i++)
+        for (int i = 0; i < towers.Count; i++)
         {
-            if (towerPrefabGroups[i].prefabs == null || towerPrefabGroups[i].prefabs.Length == 0)
+            if (towers[i].prefabs == null || towers[i].prefabs.Length == 0)
             {
-                Debug.LogError($"Tower type {i} has no prefabs assigned!");
+                // Handle missing prefabs gracefully.
+                currentTiers[i] = -1; // Mark invalid tiers.
             }
         }
     }
 
     public GameObject GetUpgradedTowerPrefab(int towerType)
     {
-        if (towerType < 0 || towerType >= towerPrefabGroups.Count)
+        if (towerType < 0 || towerType >= towers.Count)
         {
-            Debug.LogError($"Invalid towerType index: {towerType}");
             return null;
         }
 
         int tier = currentTiers[towerType];
-        if (tier < 0 || tier >= towerPrefabGroups[towerType].prefabs.Length)
+        if (tier < 0 || tier >= towers[towerType].prefabs.Length)
         {
-            Debug.LogError($"Invalid tier for towerType {towerType}: {tier}");
             return null;
         }
 
-        return towerPrefabGroups[towerType].prefabs[tier];
+        return towers[towerType].prefabs[tier];
     }
 
     public void UpgradeTowerTier(int towerType)
     {
-        if (towerType < 0 || towerType >= towerPrefabGroups.Count)
+        if (towerType < 0 || towerType >= towers.Count)
         {
-            Debug.LogError($"Cannot upgrade. Invalid towerType index: {towerType}");
             return;
         }
 
-        if (currentTiers[towerType] < towerPrefabGroups[towerType].prefabs.Length - 1)
+        if (currentTiers[towerType] < towers[towerType].prefabs.Length - 1)
         {
             currentTiers[towerType]++;
-            Debug.Log($"Upgraded towerType {towerType} to tier {currentTiers[towerType]}");
-        }
-        else
-        {
-            Debug.Log($"TowerType {towerType} is already at the maximum tier.");
         }
     }
 }

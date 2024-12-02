@@ -403,6 +403,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canon tower small Variant Variant 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1608181510486878232, guid: feb2818387312d546b1617a7471345e2, type: 3}
+      propertyPath: nextShotTimer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1789344171962054593, guid: feb2818387312d546b1617a7471345e2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 328.68192
