@@ -523,8 +523,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TowerHP: {fileID: 0}
-  Thealth: 100
-  TmaxHP: 100
+  Thealth: 60
+  TmaxHP: 60
 --- !u!114 &2377302366448415940
 MonoBehaviour:
   m_ObjectHideFlags: 0

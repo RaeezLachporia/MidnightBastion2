@@ -496,8 +496,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TowerHP: {fileID: 0}
-  Thealth: 100
-  TmaxHP: 100
+  Thealth: 120
+  TmaxHP: 120
 --- !u!4 &9115206914810452937 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2979763836664847699, guid: 7dd26f48254ff8e47a5355e72c9a29c1, type: 3}
